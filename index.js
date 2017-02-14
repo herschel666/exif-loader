@@ -9,9 +9,11 @@ const ExifImage = require('exif').ExifImage;
 
 const NO_EXIF_SEGMENT = 'NO_EXIF_SEGMENT';
 
-const getFile = (content) => {
+const getFile = (publicPath, content) => {
     try {
-        return { file: evaluate(content) };
+        return {
+            file: evaluate(`__webpack_public_path__='${publicPath}'; ${content}`),
+        };
     } catch (e) {
         return {};
     }
@@ -28,7 +30,10 @@ module.exports = function exifLoader(content) {
         this.cacheable();
     }
     const done = this.async();
-    const file = getFile(content);
+    /* eslint "no-underscore-dangle": 0 */
+    const publicPath = this._compilation.outputOptions.publicPath || '/';
+    /* eslint "no-underscore-dangle": 1 */
+    const file = getFile(publicPath, content);
     const extractor = new ExifImage({ image: this.resourcePath }, (err, data) => {
         if (isError(err)) {
             return done(err);
