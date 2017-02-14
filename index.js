@@ -4,13 +4,14 @@
  * Author Emanuel Kluge (http://emanuel-kluge.de/)
 */
 
+const evaluate = require('node-eval');
 const ExifImage = require('exif').ExifImage;
 
 const NO_EXIF_SEGMENT = 'NO_EXIF_SEGMENT';
 
 const getFile = (content) => {
     try {
-        return { file: eval(content) };
+        return { file: evaluate(content) };
     } catch (e) {
         return {};
     }

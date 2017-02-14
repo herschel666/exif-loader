@@ -26,7 +26,8 @@
   "author": "Emanuel Kluge (https://www.emanuel-kluge.de/)",
   "license": "MIT",
   "dependencies": {
-    "exif": "^0.6.0"
+    "exif": "^0.6.0",
+    "node-eval": "^1.1.0"
   },
   "devDependencies": {
     "tape": "^4.6.3",
