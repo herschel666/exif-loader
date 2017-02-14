@@ -9,6 +9,7 @@ const IMG_NO_EXIF = path.join(__dirname, 'has-no-exif.jpg');
 const getContext = (img, cb) => ({
     async: () => cb,
     resourcePath: img,
+    _compilation: { outputOptions: {} },
 });
 
 test('Has Exif data', (t) => {
