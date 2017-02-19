@@ -1,6 +1,8 @@
 EXIF-Loader
 ====
 
+> Extract EXIF- & IPTC-data from your JPGs during build-time.
+
 ## Install
 
 ```
@@ -25,9 +27,10 @@ module.exports = {
 
 **modules/a.js**
 ```js
-import { exif } from './some-image.jpg';
+import { exif, iptc } from './some-image.jpg';
 
 const { imageWidth } = exif.image;
+const { object_name } = iptc;
 ```
 
 You can also use the load in tandem with the [url-loader](https://github.com/webpack-contrib/url-loader).
@@ -46,14 +49,16 @@ module.exports = {
 
 **modules/b.js**
 ```js
-import { exif, file } from './some-image.jpg';
+import { exif, iptc, file } from './some-image.jpg';
 
 const { imageWidth } = exif.image;
+const { object_name } = iptc;
 
 export default function () {
-    return (
-        <img src={file} width={imageWidth} />
-    );
+    return (<figure>
+        <img src={file} width={imageWidth} alt="" />
+        <figcaption>{object_name}</figcaption>
+    </figure>);
 }
 ```
 
