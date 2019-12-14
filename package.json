@@ -6,7 +6,8 @@
   "scripts": {
     "eslint": "eslint .",
     "tape": "tape ./test/test.js",
-    "test": "npm run eslint && npm run tape"
+    "test": "npm run eslint && npm run tape",
+    "fmt": "prettier --write '**/*.{js,md}'"
   },
   "engines": {
     "node": ">=10.13"
@@ -39,6 +40,7 @@
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1"
+    "eslint-plugin-react": "^6.7.1",
+    "prettier": "^1.19.1"
   }
 }
