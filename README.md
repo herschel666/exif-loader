@@ -36,7 +36,7 @@ const { imageWidth } = exif.image;
 const { object_name } = iptc;
 ```
 
-You can also use the load in tandem with the [url-loader](https://github.com/webpack-contrib/url-loader).
+You can also use the load in tandem with the [file-loader](https://github.com/webpack-contrib/file-loader).
 
 **webpack.config.js**
 
@@ -46,7 +46,16 @@ module.exports = {
     rules: [
       {
         test: /\.jpg$/,
-        use: ['exif-loader', 'url-loader'],
+        oneOf: [
+          {
+            resourceQuery: /^\?exif$/,
+            use: 'exif-loader',
+          },
+          {
+            resourceQuery: /^\?file$/,
+            use: ['file-loader'],
+          },
+        ],
       },
     ],
   },
@@ -56,7 +65,8 @@ module.exports = {
 **modules/b.js**
 
 ```js
-import { exif, iptc, file } from './some-image.jpg';
+import { exif, iptc } from './some-image.jpg?exif';
+import file from './some-image.jpg?file';
 
 const { imageWidth } = exif.image;
 const { object_name } = iptc;
