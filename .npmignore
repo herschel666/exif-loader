@@ -1,0 +1,8 @@
+.editorconfig
+.eslintignore
+.eslintrc
+.nvmrc
+.prettierignore
+.prettierrc
+.travis.yml
+test
