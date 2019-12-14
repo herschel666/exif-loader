@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "unit": "tape ./test/test.js",
     "test": "npm run lint && npm run unit",
-    "fmt": "prettier --write '**/*.{js,md}'"
+    "fmt": "prettier --write '**/*.{js,md}' '.eslintrc'"
   },
   "engines": {
     "node": ">=10.13"
