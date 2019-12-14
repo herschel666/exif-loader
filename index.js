@@ -1,4 +1,4 @@
-/*
+/**
  * MIT License http://www.opensource.org/licenses/mit-license.php
  * Author Emanuel Kluge (http://emanuel-kluge.de/)
  */
@@ -63,9 +63,9 @@ module.exports = function exifLoader(content) {
         this.cacheable();
     }
     const done = this.async();
-    /* eslint "no-underscore-dangle": 0 */
+    /* eslint-disable-next-line no-underscore-dangle */
     const publicPath = this._compilation.outputOptions.publicPath || '/';
-    /* eslint "no-underscore-dangle": 1 */
+
     Promise.all([
         getFile(publicPath, content),
         getExifData(this.resourcePath),

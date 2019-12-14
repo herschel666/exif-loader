@@ -4,9 +4,9 @@
   "description": "EXIF metadata loader module for Webpack.",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint .",
-    "tape": "tape ./test/test.js",
-    "test": "npm run eslint && npm run tape",
+    "lint": "eslint .",
+    "unit": "unit ./test/test.js",
+    "test": "npm run lint && npm run tape",
     "fmt": "prettier --write '**/*.{js,md}'"
   },
   "engines": {
@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "tape": "^4.6.3",
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "prettier": "^1.19.1"
   }
 }
