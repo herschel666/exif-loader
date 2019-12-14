@@ -1,16 +1,17 @@
 {
-    "extends": "airbnb",
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/recommended",
+        "plugin:node/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": ["node"],
     "env": {
         "node": true
     },
     "globals": {},
     "rules": {
-        "comma-dangle": 2,
-        "indent": [2, 4, {"SwitchCase": 0}],
-        "block-scoped-var": 0,
-        "padded-blocks": 0,
-        "no-eval": 0
+        "prettier/prettier": "error"
     },
-    "parserOptions": {},
-    "plugins": []
+    "parserOptions": {}
 }
