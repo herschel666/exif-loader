@@ -1,17 +1,17 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "plugin:import/recommended",
-        "plugin:node/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "plugins": ["node"],
-    "env": {
-        "node": true
-    },
-    "globals": {},
-    "rules": {
-        "prettier/prettier": "error"
-    },
-    "parserOptions": {}
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["node"],
+  "env": {
+    "node": true
+  },
+  "globals": {},
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {}
 }

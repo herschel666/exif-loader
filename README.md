@@ -16,14 +16,14 @@ You can use the EXIF-loader as a standalone loader:
 
 ```js
 module.exports = {
-    module: {
-        rules: [
-            {
-                test: /\.jpg$/,
-                use: ['exif-loader'],
-            },
-        ],
-    },
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/,
+        use: ['exif-loader'],
+      },
+    ],
+  },
 };
 ```
 
@@ -42,14 +42,14 @@ You can also use the load in tandem with the [url-loader](https://github.com/web
 
 ```js
 module.exports = {
-    module: {
-        rules: [
-            {
-                test: /\.jpg$/,
-                use: ['exif-loader', 'url-loader'],
-            },
-        ],
-    },
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/,
+        use: ['exif-loader', 'url-loader'],
+      },
+    ],
+  },
 };
 ```
 
@@ -62,12 +62,12 @@ const { imageWidth } = exif.image;
 const { object_name } = iptc;
 
 export default function() {
-    return (
-        <figure>
-            <img src={file} width={imageWidth} alt="" />
-            <figcaption>{object_name}</figcaption>
-        </figure>
-    );
+  return (
+    <figure>
+      <img src={file} width={imageWidth} alt="" />
+      <figcaption>{object_name}</figcaption>
+    </figure>
+  );
 }
 ```
 
