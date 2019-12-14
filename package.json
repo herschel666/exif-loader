@@ -7,7 +7,13 @@
     "lint": "eslint .",
     "unit": "tape ./test/test.js",
     "test": "npm run lint && npm run unit",
-    "fmt": "prettier --write '**/*.{js,md}' '.eslintrc'"
+    "fmt": "prettier --write '**/*.{js,md}' '.eslintrc'",
+    "release": "standard-version",
+    "release:alpha": "npm run release -- --prerelease alpha",
+    "release:beta": "npm run release -- --prerelease beta",
+    "release:patch": "npm run release -- --release-as patch",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:major": "npm run release -- --release-as major"
   },
   "engines": {
     "node": ">=10.13"
@@ -35,12 +41,13 @@
     "webpack": "^4.0.0"
   },
   "devDependencies": {
-    "tape": "^4.11.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "standard-version": "^7.0.1",
+    "tape": "^4.11.0"
   }
 }
