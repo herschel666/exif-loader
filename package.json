@@ -34,7 +34,6 @@
   "license": "MIT",
   "dependencies": {
     "exif": "^0.6.0",
-    "node-eval": "^2.0.0",
     "node-iptc": "^1.0.5"
   },
   "peerDependencies": {

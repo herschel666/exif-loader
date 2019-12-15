@@ -5,8 +5,7 @@
 'use strict';
 
 const fs = require('fs');
-const evaluate = require('node-eval');
-const ExifImage = require('exif').ExifImage;
+const { ExifImage } = require('exif');
 const iptc = require('node-iptc');
 
 const NO_EXIF_SEGMENT = 'NO_EXIF_SEGMENT';
@@ -14,19 +13,6 @@ const NO_EXIF_SEGMENT = 'NO_EXIF_SEGMENT';
 const isError = (err) => err && err.code !== NO_EXIF_SEGMENT;
 
 const hasNoExifData = (err) => err && err.code === NO_EXIF_SEGMENT;
-
-const getFile = (publicPath, content) =>
-  Promise.resolve(
-    (() => {
-      try {
-        return {
-          file: evaluate(`__webpack_public_path__='${publicPath}'; ${content}`),
-        };
-      } catch (e) {
-        return {};
-      }
-    })()
-  );
 
 const getExifData = (image) =>
   new Promise((resolve, reject) => {
@@ -57,19 +43,13 @@ const mergeResults = (done) => (results) => {
   return done(null, `module.exports = ${JSON.stringify(merged)};`);
 };
 
-module.exports = function exifLoader(content) {
+module.exports = function exifLoader() {
   if (this.cacheable) {
     this.cacheable();
   }
   const done = this.async();
-  /* eslint-disable-next-line no-underscore-dangle */
-  const publicPath = this._compilation.outputOptions.publicPath || '/';
 
-  Promise.all([
-    getFile(publicPath, content),
-    getExifData(this.resourcePath),
-    getIptcData(this.resourcePath),
-  ])
+  Promise.all([getExifData(this.resourcePath), getIptcData(this.resourcePath)])
     .then(mergeResults(done))
     .catch(done);
 };
