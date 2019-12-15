@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-beta.0](https://github.com/herschel666/exif-loader/compare/v0.1.0-alpha.3...v0.1.0-beta.0) (2019-12-15)
+
+
+### Bug Fixes
+
+* decrease download size significantly ([2a871fa](https://github.com/herschel666/exif-loader/commit/2a871fa374f5630c5fe285b02094c25ff32e02a6))
+* enable strict mode ([aef6940](https://github.com/herschel666/exif-loader/commit/aef69408d09ccff964a0b3df7143565f85e8a8fa))
+
 ## [0.1.0-alpha.3](https://github.com/herschel666/exif-loader/compare/v0.1.0-alpha-2...v0.1.0-alpha.3) (2019-12-14)
 
 
