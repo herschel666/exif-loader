@@ -2,6 +2,12 @@
 
 > Extract EXIF- & IPTC-data from your JPGs during build-time.
 
+[![Current Version](https://img.shields.io/npm/v/exif-loader.svg)](https://www.npmjs.com/package/exif-loader)
+[![install size](https://badgen.net/packagephobia/install/exif-loader)](https://packagephobia.now.sh/result?p=exif-loader)
+[![Monthly Downloads](https://img.shields.io/npm/dm/exif-loader.svg)](https://www.npmjs.com/package/exif-loader)
+[![Dependency Status](https://david-dm.org/herschel666/exif-loader.svg)](https://david-dm.org/herschel666/exif-loader)
+[![Build Status](https://travis-ci.org/herschel666/exif-loader.svg?branch=master)](https://travis-ci.org/herschel666/exif-loader)
+
 ## Install
 
 ```
