@@ -5,4 +5,4 @@
 .prettierignore
 .prettierrc
 .travis.yml
-test
+./test
