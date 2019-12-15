@@ -1,6 +1,6 @@
 {
   "name": "exif-loader",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "description": "EXIF metadata loader module for Webpack.",
   "main": "index.js",
   "scripts": {
