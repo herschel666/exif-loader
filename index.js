@@ -2,6 +2,7 @@
  * MIT License http://www.opensource.org/licenses/mit-license.php
  * Author Emanuel Kluge (http://emanuel-kluge.de/)
  */
+'use strict';
 
 const fs = require('fs');
 const evaluate = require('node-eval');
