@@ -49,6 +49,6 @@
     "prettier": "1.19.1",
     "standard-version": "7.1.0",
     "tape": "4.13.0",
-    "webpack": "4.41.6"
+    "webpack": "4.42.0"
   }
 }
