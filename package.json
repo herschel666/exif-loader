@@ -45,7 +45,7 @@
     "eslint-plugin-import": "2.19.1",
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-prettier": "3.1.2",
-    "file-loader": "5.1.0",
+    "file-loader": "6.0.0",
     "prettier": "1.19.1",
     "standard-version": "7.1.0",
     "tape": "4.13.2",
