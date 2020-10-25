@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/herschel666/exif-loader/compare/v0.2.0...v0.2.1) (2020-10-25)
+
+
+### Bug Fixes
+
+* keep .github-folder out of released package ([c4cda81](https://github.com/herschel666/exif-loader/commit/c4cda81c653a31c8f542cd3a93aa18f12791a215))
+
 ## [0.2.0](https://github.com/herschel666/exif-loader/compare/v0.1.2...v0.2.0) (2020-10-25)
 
 
