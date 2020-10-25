@@ -77,7 +77,7 @@ import file from './some-image.jpg?file';
 const { imageWidth } = exif.image;
 const { object_name } = iptc;
 
-export default function() {
+export default function () {
   return (
     <figure>
       <img src={file} width={imageWidth} alt="" />
@@ -104,7 +104,7 @@ I you have questions, feel free to ping me on twitter:
 
 The MIT License (MIT)
 
-Copyright (c) 2019 Emanuel Kluge
+Copyright (c) 2020 Emanuel Kluge
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
