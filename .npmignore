@@ -4,7 +4,7 @@
 .nvmrc
 .prettierignore
 .prettierrc
-.travis.yml
+.github
 renovate.json
 CHANGELOG.md
 test/
