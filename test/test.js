@@ -1,5 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
+const webpack4 = require('webpack');
+const webpack5 = require('webpack5');
 /* eslint-disable-next-line node/no-unpublished-require */
 const test = require('tape');
 
@@ -30,9 +31,9 @@ const getLoader = (withFile = false) => {
   };
 };
 
-const createBundler = (loader) => (name) =>
+const createBundler = (wp, loader) => (name) =>
   new Promise((resolve, reject) =>
-    webpack(
+    wp(
       {
         mode: 'development',
         devtool: false,
@@ -64,48 +65,50 @@ const createBundler = (loader) => (name) =>
     )
   );
 
-const bundle = createBundler(getLoader());
-const bundleWithFile = createBundler(getLoader(true));
+Object.entries({ webpack4, webpack5 }).forEach(([name, wp]) => {
+  const bundle = createBundler(wp, getLoader());
+  const bundleWithFile = createBundler(wp, getLoader(true));
 
-test('Has Exif/IPTC data', async (t) => {
-  t.plan(2);
-  const { exif, iptc } = await bundle('exif');
+  test(`[${name}] Has Exif/IPTC data`, async (t) => {
+    t.plan(2);
+    const { exif, iptc } = await bundle('exif');
 
-  t.equal(exif.image.XResolution, 240);
-  t.equal(iptc.headline, 'Image title');
-});
+    t.equal(exif.image.XResolution, 240);
+    t.equal(iptc.headline, 'Image title');
+  });
 
-test('Has Exif/IPTC data & file', async (t) => {
-  t.plan(3);
-  const {
-    exif,
-    iptc,
-    file: { default: file },
-  } = await bundleWithFile('exif-and-file');
+  test(`[${name}] Has Exif/IPTC data & file`, async (t) => {
+    t.plan(3);
+    const {
+      exif,
+      iptc,
+      file: { default: file },
+    } = await bundleWithFile('exif-and-file');
 
-  t.equal(exif.image.XResolution, 240);
-  t.equal(iptc.headline, 'Image title');
-  t.ok(isValidFileIdentifier(file));
-});
+    t.equal(exif.image.XResolution, 240);
+    t.equal(iptc.headline, 'Image title');
+    t.ok(isValidFileIdentifier(file));
+  });
 
-test('Has no Exif/IPTC data', async (t) => {
-  t.plan(3);
-  const { exif, iptc } = await bundle('no-exif');
+  test(`[${name}] Has no Exif/IPTC data`, async (t) => {
+    t.plan(3);
+    const { exif, iptc } = await bundle('no-exif');
 
-  t.ok(exif.image);
-  t.notOk(iptc.headline);
-  t.notOk(exif.image.XResolution);
-});
+    t.ok(exif.image);
+    t.notOk(iptc.headline);
+    t.notOk(exif.image.XResolution);
+  });
 
-test('Has no Exif/IPTC data, but file', async (t) => {
-  t.plan(3);
-  const {
-    exif,
-    iptc,
-    file: { default: file },
-  } = await bundleWithFile('no-exif-but-file');
+  test(`[${name}] Has no Exif/IPTC data, but file`, async (t) => {
+    t.plan(3);
+    const {
+      exif,
+      iptc,
+      file: { default: file },
+    } = await bundleWithFile('no-exif-but-file');
 
-  t.notOk(exif.image.XResolution);
-  t.notOk(iptc.headline);
-  t.ok(isValidFileIdentifier(file));
+    t.notOk(exif.image.XResolution);
+    t.notOk(iptc.headline);
+    t.ok(isValidFileIdentifier(file));
+  });
 });

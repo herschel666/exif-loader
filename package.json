@@ -37,7 +37,7 @@
     "node-iptc": "^1.0.5"
   },
   "peerDependencies": {
-    "webpack": "^4.0.0"
+    "webpack": "^4.0.0 || ^5.2.0"
   },
   "devDependencies": {
     "eslint": "7.12.0",
@@ -49,6 +49,7 @@
     "prettier": "2.1.2",
     "standard-version": "9.0.0",
     "tape": "5.0.1",
-    "webpack": "4.44.2"
+    "webpack": "4.44.2",
+    "webpack5": "npm:webpack@5.2.0"
   }
 }
