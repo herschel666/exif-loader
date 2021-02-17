@@ -47,7 +47,7 @@
     "eslint-plugin-prettier": "3.3.1",
     "file-loader": "6.2.0",
     "prettier": "2.2.1",
-    "standard-version": "9.1.0",
+    "standard-version": "9.1.1",
     "tape": "5.1.1",
     "webpack": "4.46.0",
     "webpack5": "npm:webpack@5.22.0"
