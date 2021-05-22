@@ -1,6 +1,10 @@
 {
-  "extends": ["config:base", ":pinOnlyDevDependencies"],
+  "extends": [
+    "config:base",
+    ":pinOnlyDevDependencies",
+    ":maintainLockFilesWeekly"
+  ],
   "devDependencies": {
-		"automerge": true
+    "automerge": true
   }
 }
