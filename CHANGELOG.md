@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/herschel666/exif-loader/compare/v0.2.1...v0.2.2) (2021-11-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Node v10 is not supported anymore.
+
+### Bug Fixes
+
+* drop support for Node v10 ([9e47584](https://github.com/herschel666/exif-loader/commit/9e475843ef9ebe7c240e81a2b646854d98927a91))
+
 ### [0.2.1](https://github.com/herschel666/exif-loader/compare/v0.2.0...v0.2.1) (2020-10-25)
 
 
