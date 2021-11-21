@@ -4,11 +4,36 @@ const webpack5 = require('webpack5');
 /* eslint-disable-next-line node/no-unpublished-require */
 const test = require('tape');
 
-const isValidFileIdentifier = (filename) =>
-  Boolean(/^[\da-f]{32}\.jpg$/i.exec(filename));
+const webpackVersions = { webpack5 };
 
-const getLoader = (withFile = false) => {
+const nodeVersionLowerThan17 = () =>
+  Number(process.versions.node.split('.').shift()) < 17;
+
+if (nodeVersionLowerThan17()) {
+  Object.assign(webpackVersions, { webpack4 });
+}
+
+const isValidFileIdentifier = (filename) =>
+  Boolean(/^[\da-f]{20}\.jpg$/i.exec(filename));
+
+const getLoader = (webpackVersion, withFile = false) => {
   const exifLoader = require.resolve('..');
+  const fileLoader =
+    webpackVersion === 5
+      ? {
+          resourceQuery: /^\?file$/,
+          type: 'asset/resource',
+          generator: {
+            filename: '[contenthash:20][ext]',
+          },
+        }
+      : {
+          resourceQuery: /^\?file$/,
+          use: {
+            loader: 'file-loader',
+            options: { name: '[contenthash:20].[ext]' },
+          },
+        };
 
   if (withFile) {
     return {
@@ -18,10 +43,7 @@ const getLoader = (withFile = false) => {
           resourceQuery: /^\?exif$/,
           use: exifLoader,
         },
-        {
-          resourceQuery: /^\?file$/,
-          use: ['file-loader'],
-        },
+        fileLoader,
       ],
     };
   }
@@ -44,6 +66,7 @@ const createBundler = (wp, loader) => (name) =>
           libraryTarget: 'commonjs2',
           path: path.join(__dirname, 'output'),
           filename: `${name}.js`,
+          publicPath: '',
         },
         module: {
           rules: [loader],
@@ -65,9 +88,10 @@ const createBundler = (wp, loader) => (name) =>
     )
   );
 
-Object.entries({ webpack4, webpack5 }).forEach(([name, wp]) => {
-  const bundle = createBundler(wp, getLoader());
-  const bundleWithFile = createBundler(wp, getLoader(true));
+Object.entries(webpackVersions).forEach(([name, wp]) => {
+  const webpackVersion = Number(name.replace('webpack', ''));
+  const bundle = createBundler(wp, getLoader(webpackVersion));
+  const bundleWithFile = createBundler(wp, getLoader(webpackVersion, true));
 
   test(`[${name}] Has Exif/IPTC data`, async (t) => {
     t.plan(2);
@@ -82,8 +106,10 @@ Object.entries({ webpack4, webpack5 }).forEach(([name, wp]) => {
     const {
       exif,
       iptc,
-      file: { default: file },
+      file: fileExport,
     } = await bundleWithFile('exif-and-file');
+    const file =
+      typeof fileExport === 'string' ? fileExport : fileExport.default;
 
     t.equal(exif.image.XResolution, 240);
     t.equal(iptc.headline, 'Image title');
@@ -104,8 +130,10 @@ Object.entries({ webpack4, webpack5 }).forEach(([name, wp]) => {
     const {
       exif,
       iptc,
-      file: { default: file },
+      file: fileExport,
     } = await bundleWithFile('no-exif-but-file');
+    const file =
+      typeof fileExport === 'string' ? fileExport : fileExport.default;
 
     t.notOk(exif.image.XResolution);
     t.notOk(iptc.headline);
