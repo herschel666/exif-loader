@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/herschel666/exif-loader/compare/v0.2.2...v0.3.0) (2021-11-21)
+
+
+### Features
+
+* add support for Node v17 ([40ffa8c](https://github.com/herschel666/exif-loader/commit/40ffa8c7b1c059df70fa92fe8b71b084142ca18b))
+
 ### [0.2.2](https://github.com/herschel666/exif-loader/compare/v0.2.1...v0.2.2) (2021-11-21)
 
 
