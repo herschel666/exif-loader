@@ -1,6 +1,10 @@
 name: Build and Test and Deploy
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - KillYourMaster
+  pull_request:
 
 jobs:
   ci-cd:
