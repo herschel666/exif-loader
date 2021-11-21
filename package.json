@@ -16,7 +16,7 @@
     "release:major": "npm run release -- --release-as major"
   },
   "engines": {
-    "node": ">=10.13"
+    "node": "^14.18 || ^12 || ^16"
   },
   "repository": {
     "type": "git",
