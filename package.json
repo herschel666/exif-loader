@@ -46,7 +46,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "file-loader": "6.2.0",
-    "prettier": "2.7.0",
+    "prettier": "2.7.1",
     "standard-version": "9.5.0",
     "tape": "5.5.3",
     "webpack": "5.73.0",
