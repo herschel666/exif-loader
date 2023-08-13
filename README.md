@@ -97,8 +97,8 @@ Thanks!
 
 ## Questions
 
-I you have questions, feel free to ping me on twitter:
-[@Herschel_R](https://twitter.com/Herschel_R).
+I you have questions, feel free to ping me on Mastodon:
+[@Herschel_R](https://mastodon.social/@herschel_r).
 
 ## License
 
