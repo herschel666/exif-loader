@@ -50,6 +50,6 @@
     "standard-version": "9.5.0",
     "tape": "5.7.4",
     "webpack": "5.90.1",
-    "webpack5": "npm:webpack@5.90.0"
+    "webpack5": "npm:webpack@5.90.1"
   }
 }
