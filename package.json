@@ -48,7 +48,7 @@
     "file-loader": "6.2.0",
     "prettier": "2.8.8",
     "standard-version": "9.5.0",
-    "tape": "5.7.5",
+    "tape": "5.8.0",
     "webpack": "5.92.0",
     "webpack5": "npm:webpack@5.92.0"
   }
