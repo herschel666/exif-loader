@@ -49,7 +49,7 @@
     "prettier": "2.8.8",
     "standard-version": "9.5.0",
     "tape": "5.8.1",
-    "webpack": "5.92.0",
+    "webpack": "5.92.1",
     "webpack5": "npm:webpack@5.92.0"
   }
 }
