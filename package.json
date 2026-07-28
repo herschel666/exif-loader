@@ -50,6 +50,6 @@
     "commit-and-tag-version": "13.1.2",
     "tape": "5.10.2",
     "webpack": "5.109.2",
-    "webpack5": "npm:webpack@5.109.1"
+    "webpack5": "npm:webpack@5.109.2"
   }
 }
